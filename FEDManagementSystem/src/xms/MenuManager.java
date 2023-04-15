@@ -31,7 +31,7 @@ public class MenuManager {
 				foodManager.editFood();
 			}
 			else if(num == 4) {
-				foodManager.viewFood();
+				foodManager.viewFoods();
 			}
 			else {
 				continue;
