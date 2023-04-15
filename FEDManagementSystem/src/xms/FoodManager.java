@@ -13,7 +13,7 @@ public class FoodManager {
 	public void addFood() {
 		Food food = new Food();
 		System.out.print("Food Name: ");
-		food.name = input.next();
+		food.foodname = input.next();
 		
 		System.out.print("Food Category: ");
 		food.foodcategory = input.next();
@@ -40,7 +40,7 @@ public class FoodManager {
 		String foodname = input.next();
 		int index = -1;
 		for(int i = 0; i<foods.size(); i++) {
-			if(foods.get(i).name.equals(foodname)) {
+			if(foods.get(i).foodname.equals(foodname)) {
 				index = i;
 				break;
 			}
@@ -63,7 +63,7 @@ public class FoodManager {
 		String foodname = input.next();
 		for(int i = 0; i<foods.size(); i++) {
 			Food food = foods.get(i);
-			if(food.name.equals(foodname)) {
+			if(food.foodname.equals(foodname)) {
 				int num = -1;
 				
 				while(num != 7) {
@@ -78,7 +78,7 @@ public class FoodManager {
 					System.out.print("Select one number between 1-7: ");
 					num = input.nextInt();
 					if(num == 1) {
-						food.name = input.next();
+						food.foodname = input.next();
 					}
 					else if(num == 2) {
 						food.foodcategory = input.next();

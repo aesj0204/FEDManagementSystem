@@ -17,7 +17,7 @@ public class MenuManager {
 			System.out.println("1. Add Food");
 			System.out.println("2. Delete Food");
 			System.out.println("3. Edit Food");
-			System.out.println("4. View Foods");
+			System.out.println("4. View Food");
 			System.out.println("5. Exit");
 			System.out.print("Select one number between 1-5: ");
 			num = input.nextInt();
