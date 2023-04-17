@@ -93,6 +93,7 @@ public class FoodManager {
 						food.foodimage = input.next();
 					}
 					else if(num == 6) {
+						input.nextLine();
 						food.note = input.nextLine();
 					}
 					else {
