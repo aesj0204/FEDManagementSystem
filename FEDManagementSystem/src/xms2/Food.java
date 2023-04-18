@@ -1,4 +1,4 @@
-package xms;
+package xms2;
 
 public class Food {
 	
@@ -33,7 +33,7 @@ public class Food {
 	
 	public String DDAY() {
 		String[] expirydate_1 = expirydate.split("/");
-		DdayConvert dday = new DdayConvert(expirydate_1[0], expirydate_1[1], expirydate_1[2]);
+		DdayConverter dday = new DdayConverter(expirydate_1[0], expirydate_1[1], expirydate_1[2]);
 		dDay = dday.getDDay();
 		if(dDay == 0) {
 			return "D-Day";

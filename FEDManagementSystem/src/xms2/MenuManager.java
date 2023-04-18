@@ -1,4 +1,4 @@
-package xms;
+package xms2;
 
 import java.time.LocalDate;
 import java.util.Scanner;

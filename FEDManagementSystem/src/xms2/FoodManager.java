@@ -1,4 +1,4 @@
-package xms;
+package xms2;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -93,6 +93,7 @@ public class FoodManager {
 						food.foodimage = input.next();
 					}
 					else if(num == 6) {
+						input.nextLine();
 						food.note = input.nextLine();
 					}
 					else {

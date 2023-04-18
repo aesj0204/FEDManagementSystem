@@ -1,11 +1,11 @@
-package xms;
+package xms2;
 
 import java.util.Calendar;
 
-public class DdayConvert {
+public class DdayConverter {
 	int year, month, day;
 	
-	DdayConvert(String year, String month, String day){
+	DdayConverter(String year, String month, String day){
 		this.year = Integer.parseInt(year);
 		this.month = Integer.parseInt(month);
 		this.day = Integer.parseInt(day);
