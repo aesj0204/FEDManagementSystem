@@ -3,6 +3,9 @@ package xms;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import food.Food;
+import food.EdNotSpecified;
+
 public class FoodManager {
 	ArrayList<Food> foods = new ArrayList<Food>();
 	Scanner input;
@@ -11,28 +14,30 @@ public class FoodManager {
 	}
 	
 	public void addFood() {
-		Food food = new Food();
-		System.out.print("Food Name: ");
-		food.foodname = input.next();
-		
-		System.out.print("Food Category: ");
-		food.foodcategory = input.next();
-		
-		System.out.print("Location: ");
-		food.location = input.next();
-		
-		System.out.print("Expiry Date: ");
-		food.expirydate = input.next();
-		
-		System.out.print("Food Image: ");
-		food.foodimage = input.next();
-		
-		input.nextLine();
-		
-		System.out.print("Note: ");
-		food.note = input.nextLine();
-		
-		foods.add(food);
+		int kind = 0;
+		Food food;
+		while(kind != 1 && kind != 2) {
+			System.out.println("1. Expiry date specified");
+			System.out.println("2. Expiry date not Specified");
+			System.out.print("Select num for Food Kind between 1 and 2: ");
+			kind = input.nextInt();
+			if(kind == 1) {
+				food = new Food();
+				food.getUserInput(input);
+				foods.add(food);
+				break;
+			}
+			else if(kind == 2) {
+				food = new EdNotSpecified();
+				food.getUserInput(input);
+				foods.add(food);
+				break;
+			}
+			else {
+				System.out.print("Select num for Food Kind between 1 and 2: ");
+			}
+			
+		}
 	}
 	
 	public void deleteFood() {
@@ -40,7 +45,7 @@ public class FoodManager {
 		String foodname = input.next();
 		int index = -1;
 		for(int i = 0; i<foods.size(); i++) {
-			if(foods.get(i).foodname.equals(foodname)) {
+			if(foods.get(i).getFoodname().equals(foodname)) {
 				index = i;
 				break;
 			}
@@ -60,10 +65,10 @@ public class FoodManager {
 	
 	public void editFood() {
 		System.out.print("Food Name: ");
-		String foodname = input.next();
+		String name = input.next();
 		for(int i = 0; i<foods.size(); i++) {
 			Food food = foods.get(i);
-			if(food.foodname.equals(foodname)) {
+			if(food.getFoodname().equals(name)) {
 				int num = -1;
 				
 				while(num != 7) {
@@ -78,23 +83,35 @@ public class FoodManager {
 					System.out.print("Select one number between 1-7: ");
 					num = input.nextInt();
 					if(num == 1) {
-						food.foodname = input.next();
+						System.out.print("Food Name: ");
+						String foodname = input.next();
+						food.setFoodname(foodname);
 					}
 					else if(num == 2) {
-						food.foodcategory = input.next();
+						System.out.print("Food Category: ");
+						String foodcategory = input.next();
+						food.setFoodcategory(foodcategory);
 					}
 					else if(num == 3) {
-						food.location = input.next();
+						System.out.print("Location: ");
+						String location = input.next();
+						food.setLocation(location);
 					}
 					else if(num == 4) {
-						food.expirydate = input.next();
+						System.out.print("Expiry Date: ");
+						String expirydate = input.next();
+						food.setExpirydate(expirydate);
 					}
 					else if(num == 5) {
-						food.foodimage = input.next();
+						System.out.print("Food Image: ");
+						String foodimage = input.next();
+						food.setFoodimage(foodimage);
 					}
 					else if(num == 6) {
+						System.out.print("Note: ");
 						input.nextLine();
-						food.note = input.nextLine();
+						String note = input.nextLine();
+						food.setNote(note);
 					}
 					else {
 						continue;
@@ -107,7 +124,8 @@ public class FoodManager {
 	}
 	
 	public void viewFoods() {
-		for(int i = 0; i<foods.size(); i++) {
+		System.out.println("# of registered foods: " + foods.size());
+		for(int i = 0; i < foods.size(); i++) {
 			foods.get(i).printInfo();
 		}
 	}
