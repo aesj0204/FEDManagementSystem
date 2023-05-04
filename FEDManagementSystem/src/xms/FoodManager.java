@@ -34,7 +34,7 @@ public class FoodManager {
 				break;
 			}
 			else {
-				System.out.print("Select num for Food Kind between 1 and 2: ");
+				System.out.println("Select num for Food Kind between 1 and 2: ");
 			}
 			
 		}
