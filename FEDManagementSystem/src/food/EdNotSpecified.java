@@ -3,8 +3,6 @@ package food;
 import java.util.Calendar;
 import java.util.Scanner;
 
-import food.DdayConverter;
-
 public class EdNotSpecified extends Food {
 	protected int days;
 	
@@ -29,7 +27,7 @@ public class EdNotSpecified extends Food {
 		int year = date.get(Calendar.YEAR);
 		int month = date.get(Calendar.MONTH);
 		int ddday = date.get(Calendar.DAY_OF_MONTH);
-		expirydate = Integer.toString(year) + '/' + Integer.toString(month+1) + '/' + Integer.toString(ddday);
+		String expirydate = Integer.toString(year) + '/' + Integer.toString(month+1) + '/' + Integer.toString(ddday);
 		this.setExpirydate(expirydate);
 		
 		char answer = 'x';
