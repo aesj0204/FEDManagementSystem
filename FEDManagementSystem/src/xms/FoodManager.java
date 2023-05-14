@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import food.Food;
+import food.FoodInput;
+import food.FoodKind;
 import food.EdNotSpecified;
+import food.EdSpecified;
 
 public class FoodManager {
-	ArrayList<Food> foods = new ArrayList<Food>();
+	ArrayList<FoodInput> foods = new ArrayList<FoodInput>();
 	Scanner input;
 	FoodManager(Scanner input){
 		this.input = input;
@@ -15,22 +18,22 @@ public class FoodManager {
 	
 	public void addFood() {
 		int kind = 0;
-		Food food;
+		FoodInput foodInput;
 		while(kind != 1 && kind != 2) {
 			System.out.println("1. Expiry date specified");
 			System.out.println("2. Expiry date not Specified");
 			System.out.print("Select num for Food Kind between 1 and 2: ");
 			kind = input.nextInt();
 			if(kind == 1) {
-				food = new Food();
-				food.getUserInput(input);
-				foods.add(food);
+				foodInput = new EdSpecified(FoodKind.EdSpecified);
+				foodInput.getUserInput(input);
+				foods.add(foodInput);
 				break;
 			}
 			else if(kind == 2) {
-				food = new EdNotSpecified();
-				food.getUserInput(input);
-				foods.add(food);
+				foodInput = new EdNotSpecified(FoodKind.EdNotSpecified);
+				foodInput.getUserInput(input);
+				foods.add(foodInput);
 				break;
 			}
 			else {
@@ -67,8 +70,8 @@ public class FoodManager {
 		System.out.print("Food Name: ");
 		String name = input.next();
 		for(int i = 0; i<foods.size(); i++) {
-			Food food = foods.get(i);
-			if(food.getFoodname().equals(name)) {
+			FoodInput foodInput = foods.get(i);
+			if(foodInput.getFoodname().equals(name)) {
 				int num = -1;
 				
 				while(num != 7) {
@@ -85,33 +88,34 @@ public class FoodManager {
 					if(num == 1) {
 						System.out.print("Food Name: ");
 						String foodname = input.next();
-						food.setFoodname(foodname);
+						foodInput.setFoodname(foodname);
 					}
 					else if(num == 2) {
 						System.out.print("Food Category: ");
 						String foodcategory = input.next();
-						food.setFoodcategory(foodcategory);
+						foodInput.setFoodcategory(foodcategory);
 					}
 					else if(num == 3) {
 						System.out.print("Location: ");
-						String location = input.next();
-						food.setLocation(location);
+						input.nextLine();
+						String location = input.nextLine();
+						foodInput.setLocation(location);
 					}
 					else if(num == 4) {
 						System.out.print("Expiry Date: ");
 						String expirydate = input.next();
-						food.setExpirydate(expirydate);
+						foodInput.setExpirydate(expirydate);
 					}
 					else if(num == 5) {
 						System.out.print("Food Image: ");
 						String foodimage = input.next();
-						food.setFoodimage(foodimage);
+						foodInput.setFoodimage(foodimage);
 					}
 					else if(num == 6) {
 						System.out.print("Note: ");
 						input.nextLine();
 						String note = input.nextLine();
-						food.setNote(note);
+						foodInput.setNote(note);
 					}
 					else {
 						continue;

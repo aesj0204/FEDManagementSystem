@@ -2,7 +2,7 @@ package food;
 
 import java.util.Scanner;
 
-public class Food {
+public abstract class Food {
 
 	protected FoodKind kind = FoodKind.EdSpecified;
 	protected String foodname;
@@ -16,6 +16,10 @@ public class Food {
 	public Food() {
 	}
 	
+	public Food(FoodKind kind) {
+		this.kind = kind;
+	}
+	
 	public Food(String foodname, String foodcategory, String location, String expirydate, String foodimage) {
 		this.foodname = foodname;
 		this.foodcategory = foodcategory;
@@ -26,6 +30,16 @@ public class Food {
 	}
 	
 	public Food(String foodname, String foodcategory, String location, String expirydate, String foodimage, String note) {
+		this.foodname = foodname;
+		this.foodcategory = foodcategory;
+		this.location = location;
+		this.expirydate = expirydate;
+		this.foodimage = foodimage;
+		this.note = note;
+	}
+	
+	public Food(FoodKind kind, String foodname, String foodcategory, String location, String expirydate, String foodimage, String note) {
+		this.kind = kind;
 		this.foodname = foodname;
 		this.foodcategory = foodcategory;
 		this.location = location;
@@ -113,36 +127,6 @@ public class Food {
 		this.dDay = dDay;
 	}
 	
-	public void printInfo() {
-		System.out.println("Food Name: " + this.foodname + " Food Category: " + this.foodcategory + " Location: " + this.location + " Expiry Date: " + this.expirydate + " Food Image: " + this.foodimage + " Note: " + this.note + " D-Day: " + DDAY());
-	}
-	
-	public void getUserInput(Scanner input) {
-		System.out.print("Food Name: ");
-		String foodname = input.next();
-		this.setFoodname(foodname);
-		
-		System.out.print("Food Category: ");
-		String foodcategory = input.next();
-		this.setFoodcategory(foodcategory);
-		
-		System.out.print("Location: ");
-		String location = input.next();
-		this.setLocation(location);
-		
-		System.out.print("Expiry Date: ");
-		String expirydate = input.next();
-		this.setExpirydate(expirydate);
-		
-		System.out.print("Food Image: ");
-		String foodimage = input.next();
-		this.setFoodimage(foodimage);
-		
-		input.nextLine();
-		
-		System.out.print("Note: ");
-		String note = input.nextLine();
-		this.setNote(note);
-	}
+	public abstract void printInfo();
 
 }
