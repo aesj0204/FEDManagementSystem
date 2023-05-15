@@ -1,7 +1,5 @@
 package food;
 
-import java.util.Scanner;
-
 public abstract class Food {
 
 	protected FoodKind kind = FoodKind.EdSpecified;

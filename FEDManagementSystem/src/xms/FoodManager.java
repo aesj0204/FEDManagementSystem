@@ -3,7 +3,6 @@ package xms;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import food.Food;
 import food.FoodInput;
 import food.FoodKind;
 import food.EdNotSpecified;
