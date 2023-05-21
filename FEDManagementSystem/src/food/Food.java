@@ -1,13 +1,15 @@
 package food;
 
-public abstract class Food {
+import java.util.Scanner;
+
+public abstract class Food implements FoodInput {
 
 	protected FoodKind kind = FoodKind.EdSpecified;
-	protected String foodname;
-	protected String foodcategory;
+	protected String name;
+	protected String category;
 	protected String location;
 	protected String expirydate;
-	protected String foodimage;
+	protected String image;
 	protected String note;
 	protected int dDay;
 	
@@ -18,31 +20,31 @@ public abstract class Food {
 		this.kind = kind;
 	}
 	
-	public Food(String foodname, String foodcategory, String location, String expirydate, String foodimage) {
-		this.foodname = foodname;
-		this.foodcategory = foodcategory;
+	public Food(String name, String category, String location, String expirydate, String image) {
+		this.name = name;
+		this.category = category;
 		this.location = location;
 		this.expirydate = expirydate;
-		this.foodimage = foodimage;
+		this.image = image;
 		
 	}
 	
-	public Food(String foodname, String foodcategory, String location, String expirydate, String foodimage, String note) {
-		this.foodname = foodname;
-		this.foodcategory = foodcategory;
+	public Food(String name, String category, String location, String expirydate, String image, String note) {
+		this.name = name;
+		this.category = category;
 		this.location = location;
 		this.expirydate = expirydate;
-		this.foodimage = foodimage;
+		this.image = image;
 		this.note = note;
 	}
 	
-	public Food(FoodKind kind, String foodname, String foodcategory, String location, String expirydate, String foodimage, String note) {
+	public Food(FoodKind kind, String name, String category, String location, String expirydate, String image, String note) {
 		this.kind = kind;
-		this.foodname = foodname;
-		this.foodcategory = foodcategory;
+		this.name = name;
+		this.category = category;
 		this.location = location;
 		this.expirydate = expirydate;
-		this.foodimage = foodimage;
+		this.image = image;
 		this.note = note;
 	}
 	
@@ -69,20 +71,20 @@ public abstract class Food {
 		this.kind = kind;
 	}
 
-	public String getFoodname() {
-		return foodname;
+	public String getName() {
+		return name;
 	}
 
-	public void setFoodname(String foodname) {
-		this.foodname = foodname;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getFoodcategory() {
-		return foodcategory;
+	public String getCategory() {
+		return category;
 	}
 
-	public void setFoodcategory(String foodcategory) {
-		this.foodcategory = foodcategory;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public String getLocation() {
@@ -98,15 +100,16 @@ public abstract class Food {
 	}
 
 	public void setExpirydate(String expirydate) {
+		//if()
 		this.expirydate = expirydate;
 	}
 
-	public String getFoodimage() {
-		return foodimage;
+	public String getImage() {
+		return image;
 	}
 
-	public void setFoodimage(String foodimage) {
-		this.foodimage = foodimage;
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public String getNote() {
@@ -126,5 +129,57 @@ public abstract class Food {
 	}
 	
 	public abstract void printInfo();
+	
+	public void setFoodName(Scanner input) {
+		System.out.print("Food Name: ");
+		String name = input.next();
+		this.setName(name);
+	}
+	
+	public void setFoodCategory(Scanner input) {
+		System.out.print("Food Category: ");
+		String category = input.next();
+		this.setCategory(category);
+	}
+	
+	public void setFoodLocation(Scanner input) {
+		System.out.print("Location: ");
+		input.nextLine();
+		String location = input.nextLine();
+		this.setLocation(location);
+	}
+	
+	public void setFoodExpirydate(Scanner input) {
+		System.out.print("Expiry Date: ");
+		String expirydate = input.next();
+		this.setExpirydate(expirydate);
+	}
+	
+	public void setFoodImage(Scanner input) {
+		System.out.print("Food Image: ");
+		String image = input.next();
+		this.setImage(image);
+	}
+	
+	public void setFoodNote(Scanner input) {
+		System.out.print("Note: ");
+		input.nextLine();
+		String note = input.nextLine();
+		this.setNote(note);
+	}
+	
+	public String getKindString() {
+		String skind = "none";
+		switch(this.kind) {
+		case EdSpecified:
+			skind = "ED O";
+			break;
+		case EdNotSpecified:
+			skind = "ED X";
+			break;
+		default:
+		}
+		return skind;
+	}
 
 }

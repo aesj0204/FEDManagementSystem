@@ -4,22 +4,34 @@ import java.util.Scanner;
 
 public interface FoodInput {
 	
-	public String getFoodname();
+	public String getName();
 	
-	public void setFoodname(String foodname);
+	public void setName(String foodname);
 	
-	public void setFoodcategory(String foodcategory);
+	public void setCategory(String foodcategory);
 	
 	public void setLocation(String location);
 	
 	public void setExpirydate(String expirydate);
 	
-	public void setFoodimage(String foodimage);
+	public void setImage(String foodimage);
 	
 	public void setNote(String note);
 	
 	public void getUserInput(Scanner input);
 	
 	public void printInfo();
+	
+	public void setFoodName(Scanner input);
+	
+	public void setFoodCategory( Scanner input);
+	
+	public void setFoodLocation( Scanner input);
+	
+	public void setFoodExpirydate(Scanner input);
+	
+	public void setFoodImage(Scanner input);
+	
+	public void setFoodNote(Scanner input);
 
 }
