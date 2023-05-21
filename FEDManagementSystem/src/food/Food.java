@@ -1,5 +1,7 @@
 package food;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 public abstract class Food implements FoodInput {
@@ -100,7 +102,6 @@ public abstract class Food implements FoodInput {
 	}
 
 	public void setExpirydate(String expirydate) {
-		//if()
 		this.expirydate = expirydate;
 	}
 
@@ -150,9 +151,20 @@ public abstract class Food implements FoodInput {
 	}
 	
 	public void setFoodExpirydate(Scanner input) {
-		System.out.print("Expiry Date: ");
-		String expirydate = input.next();
-		this.setExpirydate(expirydate);
+		while(true) {
+			System.out.print("Expiry Date: ");
+			String expirydate = input.next();
+			try {
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy/mm/dd");
+				sdf.setLenient(false);
+				sdf.parse(expirydate);
+				this.setExpirydate(expirydate);
+				break;
+			}
+			catch(ParseException e) {
+				System.out.println("Incorrect Date Format!");
+			}
+		}
 	}
 	
 	public void setFoodImage(Scanner input) {

@@ -27,12 +27,30 @@ public class EdNotSpecified extends Food {
 				System.out.print("How many days are left before the expiry date?: ");
 				days = input.nextInt();
 				if(days >= 0) {
+					String year, month, ddday;
 					Calendar date = Calendar.getInstance();
 					date.add(Calendar.DAY_OF_MONTH, days);
-					int year = date.get(Calendar.YEAR);
-					int month = date.get(Calendar.MONTH);
-					int ddday = date.get(Calendar.DAY_OF_MONTH);
-					String expirydate = Integer.toString(year) + '/' + Integer.toString(month+1) + '/' + Integer.toString(ddday);
+					if(date.get(Calendar.YEAR) < 10) {
+						year = '0' + Integer.toString(date.get(Calendar.YEAR));
+					}
+					else {
+						year = Integer.toString(date.get(Calendar.YEAR));
+					}
+					if ( date.get(Calendar.MONTH) + 1 < 10) {
+	                     month = '0' + Integer.toString(1 + date.get(Calendar.MONTH));
+	                     
+	                  }else {
+	                     month = Integer.toString(date.get(Calendar.MONTH));
+	                  }
+
+					if(date.get(Calendar.DAY_OF_MONTH) < 10) {
+						ddday = '0' + Integer.toString(date.get(Calendar.DAY_OF_MONTH));
+					}
+					else {
+						ddday = Integer.toString(date.get(Calendar.DAY_OF_MONTH));
+					}
+					
+					String expirydate = year + '/' + month + '/' + ddday;
 					this.setExpirydate(expirydate);
 				}
 				else {
