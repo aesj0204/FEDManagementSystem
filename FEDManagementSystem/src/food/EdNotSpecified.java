@@ -38,11 +38,9 @@ public class EdNotSpecified extends Food {
 					}
 					if ( date.get(Calendar.MONTH) + 1 < 10) {
 	                     month = '0' + Integer.toString(1 + date.get(Calendar.MONTH));
-	                     
 	                  }else {
 	                     month = Integer.toString(date.get(Calendar.MONTH));
 	                  }
-
 					if(date.get(Calendar.DAY_OF_MONTH) < 10) {
 						ddday = '0' + Integer.toString(date.get(Calendar.DAY_OF_MONTH));
 					}

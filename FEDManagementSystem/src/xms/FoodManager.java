@@ -1,5 +1,6 @@
 package xms;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -9,9 +10,12 @@ import food.FoodKind;
 import food.EdNotSpecified;
 import food.EdSpecified;
 
-public class FoodManager {
+public class FoodManager implements Serializable {
+	
+	private static final long serialVersionUID = -1080666487036940320L;
+	
 	ArrayList<FoodInput> foods = new ArrayList<FoodInput>();
-	Scanner input;
+	transient Scanner input;
 	FoodManager(Scanner input){
 		this.input = input;
 	}
@@ -48,7 +52,6 @@ public class FoodManager {
 				}
 				kind = -1;
 			}
-			
 		}
 	}
 	
@@ -128,8 +131,6 @@ public class FoodManager {
 			foods.get(i).printInfo();
 		}
 	}
-	
-	
 	
 	public void showEditMenu() {
 		System.out.println("*** Food Info Edit Menu ***");
