@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import gui.WindowFrame;
 import log.EventLogger;
 
 import java.io.FileInputStream;
@@ -24,6 +25,7 @@ public class MenuManager {
 			foodManager = new FoodManager(input);
 		}
 		
+		WindowFrame frame = new WindowFrame(foodManager);
 		selectMenu(input, foodManager);
 		putObject(foodManager, "foodmanager.ser");
 	}

@@ -2,9 +2,13 @@ package gui;
 
 import javax.swing.*;
 
-public class FoodAdder extends JFrame {
+public class FoodAdder extends JPanel {
 	
-	public FoodAdder() {
+	WindowFrame frame;
+	
+	public FoodAdder(WindowFrame frame) {
+		this.frame = frame;
+		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
 		
@@ -49,10 +53,7 @@ public class FoodAdder extends JFrame {
 		
 		SpringUtilities.makeCompactGrid(panel, 7, 2, 6, 6, 6, 6);
 		
-		this.setSize(300, 300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		this.setContentPane(panel);
+		this.add(panel);
 		this.setVisible(true);
 	}
 

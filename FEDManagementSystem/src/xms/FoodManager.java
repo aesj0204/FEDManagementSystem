@@ -9,6 +9,7 @@ import food.FoodInput;
 import food.FoodKind;
 import food.EdNotSpecified;
 import food.EdSpecified;
+import food.Food;
 
 public class FoodManager implements Serializable {
 	
@@ -17,6 +18,10 @@ public class FoodManager implements Serializable {
 	ArrayList<FoodInput> foods = new ArrayList<FoodInput>();
 	transient Scanner input;
 	FoodManager(Scanner input){
+		this.input = input;
+	}
+	
+	public void setScanner(Scanner input) {
 		this.input = input;
 	}
 	
@@ -130,6 +135,14 @@ public class FoodManager implements Serializable {
 		for(int i = 0; i < foods.size(); i++) {
 			foods.get(i).printInfo();
 		}
+	}
+	
+	public int size() {
+		return foods.size();
+	}
+	
+	public FoodInput get(int index) {
+		return (Food) foods.get(index);
 	}
 	
 	public void showEditMenu() {
