@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 import gui.FoodAdder;
-import gui.FoodViewer;
 import gui.WindowFrame;
 
 public class ButtonAddListener implements ActionListener {
